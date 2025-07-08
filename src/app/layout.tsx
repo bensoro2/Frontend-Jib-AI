@@ -6,6 +6,7 @@ import { AppSidebar } from "@/components/features/app-sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import DarkmodeProvider from "@/components/providers/darkmode-provider";
 import { HeaderDashboard } from "@/components/features/header";
+import ConditionalBackground from "@/components/shared/conditional-background";
 
 const notoSansThai = Noto_Sans_Thai({
   subsets: ["latin", "thai"],
@@ -28,12 +29,10 @@ export default function RootLayout({
           <SidebarProvider>
             <AppSidebar />
             <SidebarInset>
-              <div
-                className="bg-[url('/images/bg.png')] h-full bg-cover bg-top bg-no-repeat"
-              >
+              <ConditionalBackground>
                 <HeaderDashboard />
                 {children}
-              </div>
+              </ConditionalBackground>
             </SidebarInset>
           </SidebarProvider>
         </DarkmodeProvider>

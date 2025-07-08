@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { MessageSquare, MoreHorizontal } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -17,7 +18,7 @@ import {
 import { LogoDashboard } from "./logo-dashboard";
 
 const chatHistory = [
-  { id: "1", title: "จัดสเปคคอมพิวเตอร์...", isActive: true },
+  { id: "1", title: "จัดสเปคคอมพิวเตอร์...", isActive: false },
   { id: "2", title: "การเล่นเกม", isActive: false },
   { id: "3", title: "การทำงานกราฟิก", isActive: false },
   { id: "4", title: "การเรียนออนไลน์", isActive: false },
@@ -25,6 +26,7 @@ const chatHistory = [
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { open } = useSidebar();
+  const router = useRouter();
   const isLoading = false;
 
   if (!open) return null;
@@ -54,6 +56,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                       "w-full justify-start h-9",
                       chat.isActive && "bg-muted text-foreground hover:bg-muted"
                     )}
+                    onClick={() => router.push(`/${chat.id}`)}
                   >
                     <div className="flex items-center justify-between w-full">
                       <div className="flex items-center">
