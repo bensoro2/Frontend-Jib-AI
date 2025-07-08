@@ -1,103 +1,77 @@
+import {
+  Cpu,
+  Search,
+  Columns4,
+  Send,
+  Paperclip,
+  Camera,
+} from "lucide-react";
+import { JSX } from "react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import FeatureCard from "@/components/features/landing/feature-card";
+import { FeatureToggle } from "@/components/features/landing/feature-toggle";
 
-export default function Home() {
+export default function (): JSX.Element {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="flex max-h-screen w-full flex-col items-center justify-center space-y-12 p-4 text-white">
+      <div className="text-center">
+        <div>
+          <Image
+            src="/images/logo.png"
+            alt="JIB AI Logo"
+            width={92}
+            height={58}
+            className="mx-auto mb-4"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <h2 className="mt-2 text-5xl font-bold bg-gradient-to-r from-white via-65% via-[#C1C1E1] to-100% to-[#0C0C8A] bg-clip-text text-transparent">ตัวช่วยส่วนตัวด้าน IT</h2>
+        <p className="mt-3 max-w-xl text-sm text-neutral-400">
+          สอบถามข้อมูลสินค้า แนะนำสเปคคอมพ์ หรือจะให้ช่วยแก้ปัญหาเบื้องต้น AI
+          ก็พร้อมให้คำแนะนำและช่วยเหลือแบบเรียลไทม์
+        </p>
+      </div>
+
+      <div className="grid w-full max-w-4xl grid-cols-1 gap-4 md:grid-cols-3">
+        <FeatureCard
+          icon={<Columns4 size={20} />}
+          title="เปรียบเทียบสเปค"
+          description="เลือกสินค้าที่คุณสนใจเพื่อดูการเปรียบเทียบ"
+        />
+        <FeatureCard
+          icon={<Cpu size={20} />}
+          title="จัดสเปคคอมพิวเตอร์"
+          description="เราจะช่วยเลือกสเปคให้เหมาะกับการใช้งานของคุณให้ดีที่สุด"
+          isPrimary={true}
+        />
+        <FeatureCard
+          icon={<Search size={20} />}
+          title="เช็คสินค้า"
+          description="ค้นหาสินค้าที่คุณต้องการได้อย่างรวดเร็ว"
+        />
+      </div>
+
+      <div className="w-full max-w-3xl">
+        <FeatureToggle />
+      </div>
+
+      <div className="w-full max-w-3xl space-y-3">
+        <div className="relative h-[140px] border rounded-3xl border-neutral-700 bg-neutral-800/50 pl-6 pr-28 text-base backdrop-blur-sm">
+          <Input
+            placeholder="พิมพ์คำถามของคุณ หรือเลือกหัวข้อที่คุณสนใจ"
+            className="h-14 mt-4 !bg-transparent"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <div className="absolute inset-y-0 right-4 flex items-center gap-x-2">
+            <Button
+              size="icon"
+              className="h-10 w-10 rounded-full bg-blue-600 hover:bg-blue-700"
+            >
+              <Send size={20} />
+            </Button>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }
