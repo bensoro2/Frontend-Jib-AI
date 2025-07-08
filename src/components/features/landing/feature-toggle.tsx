@@ -27,7 +27,7 @@ export function FeatureToggle() {
         <ToggleGroupItem
           key={feature}
           value={feature}
-          className="border w-[120px] h-fit py-1 border-neutral-700 bg-white/[1%] !text-sm text-neutral-300 hover:bg-neutral-800/30 !rounded-full data-[state=on]:bg-white/5 data-[state=on]:text-white"
+          className="border w-[120px] h-fit !py-1 border-neutral-700 bg-white/[1%] !text-sm text-neutral-300 hover:bg-neutral-800/30 !rounded-full data-[state=on]:bg-white/5 data-[state=on]:text-white"
         >
           {feature}
         </ToggleGroupItem>

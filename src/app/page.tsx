@@ -1,11 +1,4 @@
-import {
-  Cpu,
-  Search,
-  Columns4,
-  Send,
-  Paperclip,
-  Camera,
-} from "lucide-react";
+import { Cpu, Search, Columns4, Send, Mic, Paperclip } from "lucide-react";
 import { JSX } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -26,7 +19,9 @@ export default function (): JSX.Element {
             className="mx-auto mb-4"
           />
         </div>
-        <h2 className="mt-2 text-5xl font-bold bg-gradient-to-r from-white via-65% via-[#C1C1E1] to-100% to-[#0C0C8A] bg-clip-text text-transparent">ตัวช่วยส่วนตัวด้าน IT</h2>
+        <h2 className="mt-2 text-5xl font-bold bg-gradient-to-r from-white via-65% via-[#C1C1E1] to-100% to-[#0C0C8A] bg-clip-text text-transparent">
+          ตัวช่วยส่วนตัวด้าน IT<span className="text-[#BDBDBD]">|</span>
+        </h2>
         <p className="mt-3 max-w-xl text-sm text-neutral-400">
           สอบถามข้อมูลสินค้า แนะนำสเปคคอมพ์ หรือจะให้ช่วยแก้ปัญหาเบื้องต้น AI
           ก็พร้อมให้คำแนะนำและช่วยเหลือแบบเรียลไทม์
@@ -52,22 +47,33 @@ export default function (): JSX.Element {
         />
       </div>
 
-      <div className="w-full max-w-3xl">
-        <FeatureToggle />
-      </div>
+      <div className="w-full max-w-3xl space-y-6">
+        <div className="w-full max-w-3xl">
+          <FeatureToggle />
+        </div>
 
-      <div className="w-full max-w-3xl space-y-3">
-        <div className="relative h-[140px] border rounded-3xl border-neutral-700 bg-neutral-800/50 pl-6 pr-28 text-base backdrop-blur-sm">
-          <Input
-            placeholder="พิมพ์คำถามของคุณ หรือเลือกหัวข้อที่คุณสนใจ"
-            className="h-14 mt-4 !bg-transparent"
-          />
-          <div className="absolute inset-y-0 right-4 flex items-center gap-x-2">
-            <Button
-              size="icon"
-              className="h-10 w-10 rounded-full bg-blue-600 hover:bg-blue-700"
-            >
-              <Send size={20} />
+        <div className="w-full max-w-3xl space-y-3">
+          <div className="px-6 flex flex-col justify-between h-[140px] w-full border rounded-3xl bg-[radial-gradient(87.85%_133.63%_at_50.06%_0%,_rgba(255,255,255,0.1)_0%,_rgba(255,255,255,0)_100%)] [filter:drop-shadow(0px_0px_70px_rgba(130,136,190,0.25))] backdrop-blur-[15px] self-stretch text-base">
+            <div className="mt-6 flex items-center w-full justify-between">
+              <div className="grow">
+                <Input
+                  placeholder="พิมพ์คำถามของคุณ หรือเลือกหัวข้อที่คุณสนใจ"
+                  className="!bg-transparent !p-0 border-0 text-sm focus-visible:ring-0 focus-visible:ring-offset-0"
+                />
+              </div>
+              <div className="shrink">
+                <Button className="h-5 w-5 rounded-full" variant="ghost">
+                  <Mic size={18} className="text-white" />
+                </Button>
+                <Button className="h-5 w-5 rounded-full" variant="ghost">
+                  <Send size={18} className="text-white" />
+                </Button>
+              </div>
+            </div>
+
+            <Button className="w-[140px] h-[38px] bg-[#FFFFFF03] border border-[#FFFFFF80] hover:bg-white/5 rounded-full mb-6 cursor-pointer">
+              <Paperclip className="text-white" width={18} height={18} />
+              <span className="text-white text-sm">แนบรูปภาพ/ ไฟล์</span>
             </Button>
           </div>
         </div>
